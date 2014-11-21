@@ -1,0 +1,128 @@
+#!/usr/bin/env awk -f
+BEGIN {
+  # PEOPLE
+  emoji["smile"]="\xf0\x9f\x98\x84";
+  emoji["smiley"]="\xf0\x9f\x98\x83"
+  emoji["grinning"]="\xf0\x9f\x98\x80";
+  emoji["blush"]="\xf0\x9f\x98\x8a";
+  emoji["relaxed"]="\xe2\x98\xba\xef\xb8\x8f";
+  emoji["wink"]="\xf0\x9f\x98\x89";
+  emoji["heart_eyes"]="\xf0\x9f\x98\x8d";
+  emoji["kissing_heart"]="\xf0\x9f\x98\x98";
+  emoji["kissing_closed_eyes"]="\xf0\x9f\x98\x9a";
+  emoji["kissing"]="\xf0\x9f\x98\x97";
+  emoji["kissing_smiling_eyes"]="\xf0\x9f\x98\x99";
+  emoji["stuck_out_tongue_winking_eye"]="\xf0\x9f\x98\x9c";
+  emoji["stuck_out_tongue_closed_eyes"]="\xf0\x9f\x98\x9d";
+  emoji["stuck_out_tongue"]="\xf0\x9f\x98\x9b";
+  emoji["flushed"]="\xf0\x9f\x98\xb3";
+  emoji["grin"]="\xf0\x9f\x98\x81";
+  emoji["pensive"]="\xf0\x9f\x98\x94";
+  emoji["relieved"]="\xf0\x9f\x98\x8c";
+  emoji["unamused"]="\xf0\x9f\x98\x92";
+  emoji["disappointed"]="\xf0\x9f\x98\x9e";
+  emoji["persevere"]="\xf0\x9f\x98\xa3";
+  emoji["cry"]="\xf0\x9f\x98\xa2";
+  emoji["joy"]="\xf0\x9f\x98\x82";
+  emoji["sob"]="\xf0\x9f\x98\xad";
+  emoji["sleepy"]="\xf0\x9f\x98\xaa";
+  emoji["disappointed_relieved"]="\xf0\x9f\x98\xa5";
+  emoji["cold_sweat"]="\xf0\x9f\x98\xb0";
+  emoji["sweat_smile"]="\xf0\x9f\x98\x85";
+  emoji["sweat"]="\xf0\x9f\x98\x93";
+  emoji["weary"]="\xf0\x9f\x98\xa9";
+  emoji["tired_face"]="\xf0\x9f\x98\xab";
+  emoji["fearful"]="\xf0\x9f\x98\xa8";
+  emoji["scream"]="\xf0\x9f\x98\xb1";
+  emoji["angry"]="\xf0\x9f\x98\xa0";
+  emoji["rage"]="\xf0\x9f\x98\xa1";
+  emoji["triumph"]="\xf3\xbe\x8c\xa8";
+  emoji["confounded"]="\xf0\x9f\x98\x96";
+  emoji["laughing"]="\xf3\xbe\x8c\xb2";
+  emoji["yum"]="\xf0\x9f\x98\x8b";
+  emoji["mask"]="\xf0\x9f\x98\xb7";
+  emoji["sunglasses"]="\xf0\x9f\x98\x8e";
+  emoji["sleeping"]="\xf0\x9f\x98\xb4";
+  emoji["dizzy_face"]="\xf0\x9f\x98\xb5";
+  emoji["astonished"]="\xf0\x9f\x98\xb2";
+  emoji["worried"]="\xf0\x9f\x98\x9f";
+  emoji["frowning"]="\xf0\x9f\x98\xa6";
+  emoji["anguished"]="\xf0\x9f\x98\xa7";
+  emoji["smiling_imp"]="\xf0\x9f\x98\x88";
+  emoji["imp"]="\xf0\x9f\x91\xbf";
+  emoji["open_mouth"]="\xf0\x9f\x98\xae";
+  emoji["grimacing"]="\xf0\x9f\x98\xac"
+  emoji["neutral_face"]="\xf0\x9f\x98\x90";
+  emoji["confused"]="\xf0\x9f\x98\x95";
+  emoji["hushed"]="\xf0\x9f\x98\xaf";
+  emoji["no_mouth"]="\xf0\x9f\x98\xb6";
+  emoji["innocent"]="\xf0\x9f\x98\x87";
+  emoji["smirk"]="\xf0\x9f\x98\x8f";
+  emoji["expressionless"]="\xf0\x9f\x98\x91";
+  emoji["man_with_gua_pi_mao"]="\xf0\x9f\x91\xb2";
+  emoji["man_with_turban"]="\xf0\x9f\x91\xb3";
+  emoji["cop"]="\xf0\x9f\x91\xae";
+  emoji["construction_worker"]="\xf0\x9f\x91\xb7";
+  emoji["guardsman"]="\xf0\x9f\x92\x82";
+  emoji["baby"]="\xf0\x9f\x91\xb6";
+  emoji["boy"]="\xf0\x9f\x91\xa6";
+  emoji["girl"]="\xf0\x9f\x91\xa7";
+  emoji["man"]="\xf0\x9f\x91\xa8";
+  emoji["woman"]="\xf0\x9f\x91\xa9";
+  emoji["older_man"]="\xf0\x9f\x91\xb4";
+  emoji["older_woman"]="\xf0\x9f\x91\xb5";
+  emoji["person_with_blond_hair"]="\xf0\x9f\x91\xb1";
+  emoji["angel"]="\xf0\x9f\x91\xbc";
+  emoji["princess"]="\xf0\x9f\x91\xb8";
+  emoji["smiley_cat"]="\xf0\x9f\x98\xba";
+  emoji["smile_cat"]="\xf0\x9f\x98\xb8";
+  emoji["heart_eyes_cat"]="\xf0\x9f\x98\xbb";
+  emoji["kissing_cat"]="\xf0\x9f\x98\xbd";
+  emoji["smirk_cat"]="\xf0\x9f\x98\xbc";
+  emoji["scream_cat"]="\xf0\x9f\x99\x80";
+  emoji["crying_cat_face"]="\xf0\x9f\x98\xbf";
+  emoji["joy_cat"]="\xf0\x9f\x98\xb9";
+  emoji["pouting_cat"]="\xf0\x9f\x98\xbe";
+
+  emoji["cloud"]="\xe2\x98\x81\xef\xb8\x8f";
+  emoji["sunny"]="\xe2\x98\x80\xef\xb8\x8f";
+  emoji["airplane"]="\xe2\x9c\x88\xef\xb8\x8f";
+  emoji["deciduous_tree"]="\xf0\x9f\x8c\xb3";
+  emoji["evergreen_tree"]="\xf0\x9f\x8c\xb2";
+  emoji["oncoming_police_car"]="\xf0\x9f\x9a\x94";
+  emoji["oncoming_automobile"]="\xf0\x9f\x9a\x98";
+}
+
+function is_emoji(emoji_name)
+{
+  return emoji[emoji_name] != "";
+}
+
+
+function match_emoji(string)
+{
+  match($0, /\:[a-z_]+\:/) ;
+  emoji_name = substr($0, RSTART+1, RLENGTH-2);
+  if ( is_emoji(emoji_name) ) {
+    return emoji_name;
+  } else {
+    return 0;
+  }
+}
+
+function replace_emoji(string, emoji_name)
+{
+  emoji_char = emoji[emoji_name] " ";
+  substitution = ":" emoji_name ":"
+  gsub(substitution, emoji_char, string);
+  return string;
+}
+
+{
+  emoji_name = match_emoji($0);
+  while(emoji_name != 0) {
+    $0 = replace_emoji($0, emoji_name)
+    emoji_name = match_emoji($0);
+  }
+  print $0;
+}
