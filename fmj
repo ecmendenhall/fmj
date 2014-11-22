@@ -36,9 +36,9 @@ BEGIN {
   emoji["scream"]="\xf0\x9f\x98\xb1";
   emoji["angry"]="\xf0\x9f\x98\xa0";
   emoji["rage"]="\xf0\x9f\x98\xa1";
-  emoji["triumph"]="\xf3\xbe\x8c\xa8";
+  emoji["triumph"]="\xf0\x9f\x98\xa4";
   emoji["confounded"]="\xf0\x9f\x98\x96";
-  emoji["laughing"]="\xf3\xbe\x8c\xb2";
+  emoji["laughing"]="\xf0\x9f\x98\x86";
   emoji["yum"]="\xf0\x9f\x98\x8b";
   emoji["mask"]="\xf0\x9f\x98\xb7";
   emoji["sunglasses"]="\xf0\x9f\x98\x8e";
@@ -83,6 +83,31 @@ BEGIN {
   emoji["crying_cat_face"]="\xf0\x9f\x98\xbf";
   emoji["joy_cat"]="\xf0\x9f\x98\xb9";
   emoji["pouting_cat"]="\xf0\x9f\x98\xbe";
+  emoji["japanese_ogre"]="\xf0\x9f\x91\xb4";
+  emoji["japanese_goblin"]="\xf0\x9f\x91\xba";
+  emoji["see_no_evil"]="\xf0\x9f\x99\x88";
+  emoji["hear_no_evil"]="\xf0\x9f\x99\x89";
+  emoji["speak_no_evil"]="\xf0\x9f\x99\x8a";
+  emoji["skull"]="\xf0\x9f\x92\x80";
+  emoji["alien"]="\xf0\x9f\x91\xbd";
+  emoji["poo"]="\xf0\x9f\x92\xa9";
+  emoji["fire"]="\xf0\x9f\x94\xa5";
+  emoji["sparkles"]="\xe2\x9c\xa8";
+  emoji["glowing_star"]="\xf0\x9f\x8c\x9f";
+  emoji["dizzy"]="\xf0\x9f\x92\xab";
+  emoji["boom"]="\xf0\x9f\x92\xa5";
+  emoji["anger"]="\xf0\x9f\x92\xa2";
+  emoji["sweat_drops"]="\xf0\x9f\x92\xa6";
+  emoji["droplet"]="\xf0\x9f\x92\xa7";
+  emoji["zzz"]="\xf0\x9f\x92\xa4";
+  emoji["dash"]="\xf0\x9f\x92\xa8";
+  emoji["ear"]="\xf0\x9f\x91\x82";
+  emoji["eyes"]="\xf0\x9f\x91\x80";
+  emoji["nose"]="\xf0\x9f\x91\x83";
+  emoji["tongue"]="\xf0\x9f\x91\x85";
+  emoji["mouth"]="\xf0\x9f\x91\x84";
+
+
 
   emoji["cloud"]="\xe2\x98\x81\xef\xb8\x8f";
   emoji["sunny"]="\xe2\x98\x80\xef\xb8\x8f";
@@ -101,7 +126,7 @@ function is_emoji(emoji_name)
 
 function match_emoji(string)
 {
-  match($0, /\:[a-z_]+\:/) ;
+  match($0, /\:[a-z_\+1]+\:/) ;
   emoji_name = substr($0, RSTART+1, RLENGTH-2);
   if ( is_emoji(emoji_name) ) {
     return emoji_name;
