@@ -1,4 +1,4 @@
-#!/usr/bin/env awk -f
+#!/usr/bin/awk -f
 BEGIN {
   # PEOPLE
   emoji["smile"]="\xf0\x9f\x98\x84";
@@ -229,6 +229,23 @@ BEGIN {
   emoji["ram"]="\xf0\x9f\x90\x8f";
   emoji["rat"]="\xf0\x9f\x90\x80";
   emoji["water_buffalo"]="\xf0\x9f\x90\x83";
+  emoji["dragon"]="\xf0\x9f\x90\x89";
+  emoji["racehorse"]="\xf0\x9f\x90\x8e";
+  emoji["goat"]="\xf0\x9f\x90\x90";
+  emoji["rooster"]="\xf0\x9f\x90\x93";
+  emoji["ox"]="\xf0\x9f\x90\x82";
+  emoji["dragon_face"]="\xf0\x9f\x90\xb2";
+  emoji["blowfish"]="\xf0\x9f\x90\xa1";
+  emoji["crocodile"]="\xf0\x9f\x90\x8a";
+  emoji["camel"]="\xf0\x9f\x90\xab";
+  emoji["dromedary_camel"]="\xf0\x9f\x90\xaa";
+  emoji["leopard"]="\xf0\x9f\x90\x86";
+  emoji["poodle"]="\xf0\x9f\x90\xa9";
+  emoji["feet"]="\xf0\x9f\x90\xbe";
+  emoji["bouquet"]="\xf0\x9f\x92\x90";
+  emoji["cherry_blossom"]="\xf0\x9f\x8c\xb8";
+  emoji["tulip"]="\xf0\x9f\x8c\xb7";
+  emoji["four_leaf_clover"]="\xf0\x9f\x8d\x80";
 
 
 
