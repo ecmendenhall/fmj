@@ -7,6 +7,7 @@ test() {
     echo "Expected: $3"
     echo "Actual:   $output"
     diff <(echo $output) <(echo  $3)
+    exit 1
   else
    echo "PASS: $1"
   fi
@@ -27,6 +28,10 @@ test "handles different emoji on one line" \
 test "handles non-emoji characters" \
      ":not_an_emoji:"               \
      ":not_an_emoji:"
+
+test "handles shortcodes containing symbols" \
+     ":+1: :-1:"                             \
+     "\xf0\x9f\x91\x8d  \xf0\x9f\x91\x8e "
 
 test "they see me rollin" \
      "`cat they_hatin`"    \

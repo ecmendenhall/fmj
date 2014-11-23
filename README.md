@@ -7,8 +7,7 @@ Put fmj somewhere on your `$PATH`. I keep tools like this in `~/.bin`:
 
 ```
 $ git clone https://github.com/ecmendenhall/fmj
-$ cd fmj
-$ mv fmj ~/.bin
+$ mv fmj/fmj ~/.bin
 ```
 
 ## Usage

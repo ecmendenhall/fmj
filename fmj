@@ -106,6 +106,8 @@ BEGIN {
   emoji["nose"]="\xf0\x9f\x91\x83";
   emoji["tongue"]="\xf0\x9f\x91\x85";
   emoji["mouth"]="\xf0\x9f\x91\x84";
+  emoji["+1"]="\xf0\x9f\x91\x8d";
+  emoji["-1"]="\xf0\x9f\x91\x8e";
   emoji["ok_hand"]="\xf0\x9f\x91\x8c";
   emoji["facepunch"]="\xf0\x9f\x91\x8a";
   emoji["fist"]="\xe2\x9c\x8a";
@@ -246,14 +248,28 @@ BEGIN {
   emoji["cherry_blossom"]="\xf0\x9f\x8c\xb8";
   emoji["tulip"]="\xf0\x9f\x8c\xb7";
   emoji["four_leaf_clover"]="\xf0\x9f\x8d\x80";
+  emoji["rose"]="\xf0\x9f\x8c\xb9";
+  emoji["sunflower"]="\xf0\x9f\x8c\xbb";
+  emoji["hibiscus"]="\xf0\x9f\x8c\xba";
+  emoji["maple_leaf"]="\xf0\x9f\x8d\x81";
+  emoji["leaves"]="\xf0\x9f\x8d\x83";
+  emoji["fallen_leaf"]="\xf0\x9f\x8d\x82";
+  emoji["herb"]="\xf0\x9f\x8c\xbf";
+  emoji["ear_of_rice"]="\xf0\x9f\x8c\xbe";
+  emoji["mushroom"]="\xf0\x9f\x8d\x84";
+  emoji["cactus"]="\xf0\x9f\x8c\xb5";
+  emoji["palm_tree"]="\xf0\x9f\x8c\xb4";
+  emoji["evergreen_tree"]="\xf0\x9f\x8c\xb2";
+  emoji["deciduous_tree"]="\xf0\x9f\x8c\xb3";
+  emoji["chestnut"]="\xf0\x9f\x8c\xb0";
+  emoji["seedling"]="\xf0\x9f\x8c\xb1";
+  emoji["blossom"]="\xf0\x9f\x8c\xbc";
 
 
 
   emoji["cloud"]="\xe2\x98\x81\xef\xb8\x8f";
   emoji["sunny"]="\xe2\x98\x80\xef\xb8\x8f";
   emoji["airplane"]="\xe2\x9c\x88\xef\xb8\x8f";
-  emoji["deciduous_tree"]="\xf0\x9f\x8c\xb3";
-  emoji["evergreen_tree"]="\xf0\x9f\x8c\xb2";
   emoji["oncoming_police_car"]="\xf0\x9f\x9a\x94";
   emoji["oncoming_automobile"]="\xf0\x9f\x9a\x98";
 }
@@ -266,7 +282,7 @@ function is_emoji(emoji_name)
 
 function match_emoji(string)
 {
-  match($0, /\:[a-z_\+1]+\:/) ;
+  match($0, /\:[a-z_+-1]+\:/);
   emoji_name = substr($0, RSTART+1, RLENGTH-2);
   if ( is_emoji(emoji_name) ) {
     return emoji_name;
@@ -278,6 +294,7 @@ function match_emoji(string)
 function replace_emoji(string, emoji_name)
 {
   emoji_char = emoji[emoji_name] " ";
+  gsub(/\+/, "\\+", emoji_name)
   substitution = ":" emoji_name ":"
   gsub(substitution, emoji_char, string);
   return string;
