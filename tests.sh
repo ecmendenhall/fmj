@@ -33,6 +33,10 @@ test "handles shortcodes containing symbols" \
      ":+1: :-1:"                             \
      "\xf0\x9f\x91\x8d  \xf0\x9f\x91\x8e "
 
+test "handles shortcodes containing numbers" \
+     ":pencil2: :8ball:"                     \
+     "\xe2\x9c\x8f\xef\xb8\x8f  \xf0\x9f\x8e\xb1 "
+
 test "they see me rollin" \
      "`cat they_hatin`"    \
 "`cat <<EOF
