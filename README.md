@@ -2,6 +2,8 @@
 
 A pure awk emoji formatter.
 
+![fmj](https://pbs.twimg.com/media/B8JxDi2CAAAD5Uz.png:large)
+
 ## Installation
 Put fmj somewhere on your `$PATH`. I keep tools like this in `~/.bin`:
 
